@@ -1,0 +1,82 @@
+<div class="container">
+  <br><br>
+  <h2 style="text-align: center;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;color: #060314;">Search GitHub Username</h2>
+  <div class="container h-100 ">
+    <div class="d-flex justify-content-center h-100">
+        <div class="searchbar">
+          <input type="text" class="search_input" placeholder="" [(ngModel)]="username" name="username" (keyup)="searchUser()">                                                                                                                                                                                                                                                                                                        
+            <a class="search_icon"><i class="fas fa-search"></i></a>
+        </div>
+    </div>
+</div>
+
+    
+    <div *ngIf="user">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="profile-title"><strong>GitHub Name: {{user.name}}</strong></h3>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-4 col-sm-4 col-xs-10">
+              <img class="img-thumbnail" src="{{user.avatar_url}}">
+            </div>
+    
+            <div class="col-md-8 col-sm-8 col-xs-10">
+              <div class="info">
+                <p>{{user.bio}}</p> 
+              </div>
+              <br/>
+              <ul class="list-group">
+                <li class="list-group-item">
+                  <strong>Username: </strong>{{user.name}}
+                </li>
+                <li class="list-group-item">
+                    <strong>Public Repositories: </strong>{{user.public_repos}}
+                  </li>
+                <li class="list-group-item">
+                  <strong>Followers: </strong>{{user.followers}}
+                </li>
+                <li class="list-group-item">
+                  <strong>Following: </strong>{{user.following}}
+                </li>
+                <li class="list-group-item">
+                  <strong>Member Since: </strong>{{user.created_at}}
+                </li>
+              </ul>
+              <br>
+              <a class="btn btn" style="background-color: #22051f;" target="_blank" href="{{user.html_url}}">Github Profile</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    <div class="container" style="padding: right 500px;">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title" style="text-align:center"><strong>User Repositories</strong></h3>
+        </div>
+        <div class="container">
+          <div *ngFor="let repo of repos">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+               
+                    <h5> Repo Name: {{repo.name}} </h5>
+                
+                  <p>{{repo.description}}</p>
+                 
+                  <p>Language:{{repo.language}}</p>
+                  <span class="label label-default">{{repo.watchers}} Watchers</span><br>
+                  <span class="label label-primary"><i class="fa fa-code-fork"></i>{{repo.forks}} Forks</span>
+                </div>
+              </div>
+              <hr>
+            </div>
+            </div>
+            
+           
+          </div>
+        </div>
+      </div>
+    </div>
+   
+
