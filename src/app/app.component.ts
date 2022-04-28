@@ -10,5 +10,5 @@ import {ProfileComponent} from './profile/profile.component';
   providers: [GithubService]
 })
 export class AppComponent {
-  title = 'GitSearch';
+  title = 'Gitearch';
 }
